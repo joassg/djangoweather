@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <title>Hello, world!</title>
+    <style>
+    	.good {background-color:#0C0;color:#000;}
+		.moderate {background-color:#FFFF00;color:#000;}
+		.usg {background-color:#FF9900;color:#000;}
+		.unhealty {background-color:#FF0000;color:#FFF;}
+		.veryunhealthy {background-color:#990066;color:#FFF;}
+		.hazardous {background-color:#660000;color:#FFF;}
+    </style>
   </head>
   <body>
 
@@ -42,9 +50,10 @@
 	        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
 	      </li>
 	    </ul>
-	    <form class="form-inline my-2 my-lg-0">
-	      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-	      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+	    <form action="{% url 'home' %}" class="form-inline my-2 my-lg-0" method="POST">
+	    	{% csrf_token %}
+	      <input class="form-control mr-sm-2" type="search" placeholder="Zipcode" aria-label="Search" name="zipcode">
+	      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Lookup</button>
 	    </form>
 	  </div>
 	</nav>
